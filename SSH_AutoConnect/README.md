@@ -1,6 +1,6 @@
 # SSH 자동접속
 
-프로젝트 루트의 `config.json`을 채운 뒤 `START.cmd`를 실행합니다. DAY2와 동일한 설정 파일을 사용합니다.
+프로젝트 루트의 `config.json`을 채운 뒤 `START.cmd`를 실행합니다. DAY2, DAY3와 동일한 설정 파일을 사용합니다.
 
 저장된 IP와 계정·비밀번호로 접속하고, 호스트 이름·계정·MAC을 확인합니다. 성공하면 루트 설정의 `last_verified_at`을 갱신하고 `whoami`, IP, MAC을 출력한 뒤 Pi 쉘을 유지합니다. 종료는 `exit`입니다.
 

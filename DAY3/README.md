@@ -22,7 +22,7 @@ Windows PowerShell 5.1과 Raspberry Pi의 Python 3.9 이상, OpenSSL 명령이 �
 | `server_signal_timeout_seconds` | DAY3 서버 준비·게시 완료 대기 | 20초 |
 | `http_timeout_seconds` | DAY3 HTTP 요청 대기 | 5초 |
 | `remote_command_timeout_seconds` | DAY3 Pi 검증기에서 실행하는 개별 Python 명령 제한 | 60초 |
-| `last_verified_at` | 장치 검증 성공 시각, 자동 갱신 | 참고용 |
+| `last_verified_at` | SSH 로그인 후 장치 이름·계정·MAC 검증 성공 시각, 자동 갱신 | 참고용 |
 
 기존 `port`는 DAY2용입니다. DAY3는 `day3_port`를 사용합니다. 새 SSH 포트와 제한 시간 항목은 DAY3에서 사용하며 기존 SSH 자동접속과 DAY2 동작은 그대로입니다. IP를 자동 탐색하거나 방화벽을 변경하지 않습니다. Pi가 접근할 수 있도록 설정한 DAY3 TCP 포트를 허용해야 합니다.
 

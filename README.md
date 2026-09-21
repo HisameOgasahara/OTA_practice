@@ -19,10 +19,22 @@ PC와 Pi의 IP는 재부팅, Wi-Fi 변경, 공유기의 주소 재할당 등으�
 
 현재 주소와 접속 대상을 확인·확정한 뒤 루트 `config.json`의 `ip`(Pi)와 `pc_ip`(Windows)를 수정하고, 확인 날짜·시각 필드인 `last_verified_at`도 갱신하세요. 예: `2026-09-21T14:00:00+09:00`. 주소를 추측해 입력한 상태에서는 검증 시각을 갱신하지 않습니다.
 
-SSH 자동접속과 DAY2는 로그인 후 장치 이름·계정·MAC 검증에 성공하면 `last_verified_at`을 자동 갱신합니다. 이 필드는 사람이나 AI의 디버깅 참고용이며, 프로그램은 날짜를 기준으로 접속 여부를 판단하거나 IP를 자동 탐색하지 않습니다.
+SSH 자동접속, DAY2, DAY3는 로그인 후 장치 이름·계정·MAC 검증에 성공하면 `last_verified_at`을 자동 갱신합니다. 이 필드는 사람이나 AI의 디버깅 참고용이며, 프로그램은 날짜를 기준으로 접속 여부를 판단하거나 IP를 자동 탐색하지 않습니다.
 
 ## 참조 문서
 
 - [Microsoft Windows OpenSSH 안내](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse)
 - [mDNS 표준 RFC 6762](https://www.rfc-editor.org/info/rfc6762/)
 - [PuTTY / Plink 공식 다운로드](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+
+## 실행 방법
+
+루트 `config.json`을 작성한 뒤 원하는 파일을 더블클릭합니다.
+
+| 구분 | 실행 파일 | 실행 결과 |
+|---|---|---|
+| SSH 자동접속 | [SSH_AutoConnect/START.cmd](SSH_AutoConnect/START.cmd) | Pi에 자동 로그인하고 명령 입력 창을 유지합니다. 종료는 `exit`입니다. |
+| DAY2 | [DAY2/START.cmd](DAY2/START.cmd) | 정상 OTA와 변조 OTA를 자동 실행하고 결과를 A/B 창에 표시합니다. |
+| DAY3 | [DAY3/START.cmd](DAY3/START.cmd) | 정상 Secure OTA, 변조 차단, 구버전 차단, A/B 복구를 자동 실행하고 결과를 A/B 창에 표시합니다. |
+
+DAY2와 DAY3는 SSH 접속까지 자동으로 진행합니다. 완료 후 각 창에서 Enter를 누르면 닫힙니다.
