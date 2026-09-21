@@ -4,3 +4,7 @@
 *.sh text eol=lf
 *.py text eol=lf
 *.json text eol=lf
+
+# Preserve the exact bytes covered by the textbook signatures and hashes.
+DAY3/lab/server/releases/** -text
+*.sig binary

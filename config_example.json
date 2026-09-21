@@ -8,5 +8,11 @@
   "ssh_host_key": "",
   "port": 8000,
   "step_pause_seconds": 4,
-  "last_verified_at": null
+  "last_verified_at": null,
+  "day3_port": 8001,
+  "ssh_connect_timeout_seconds": 5,
+  "server_signal_timeout_seconds": 20,
+  "http_timeout_seconds": 5,
+  "remote_command_timeout_seconds": 60,
+  "ssh_port": 22
 }

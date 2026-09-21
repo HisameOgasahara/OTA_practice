@@ -1,0 +1,16 @@
+{
+  "active_slot": "slot_B",
+  "slots": {
+    "slot_A": {
+      "version": "1.0",
+      "behavior": "NORMAL",
+      "health": "GOOD"
+    },
+    "slot_B": {
+      "ecu": "BCM_HEADLAMP",
+      "version": "2.0",
+      "behavior": "NORMAL",
+      "health": "GOOD"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "normal",
+    "title": "12. 정상 v2 Secure OTA",
+    "release": "v2",
+    "action": "none",
+    "exit_code": 0,
+    "markers": [
+      "Manifest signature : PASS",
+      "Firmware SHA-256   : PASS",
+      "Version policy     : PASS",
+      "Health check       : PASS",
+      "Activate           : slot_B",
+      "Update             : SUCCESS"
+    ]
+  },
+  {
+    "id": "firmware",
+    "title": "13.1 펌웨어 변조 차단",
+    "release": "v3",
+    "action": "firmware",
+    "exit_code": 1,
+    "markers": [
+      "Manifest signature : PASS",
+      "Firmware SHA-256   : FAIL",
+      "Update             : REJECTED"
+    ]
+  },
+  {
+    "id": "manifest",
+    "title": "13.2 Manifest 변조 차단",
+    "release": "v3",
+    "action": "manifest",
+    "exit_code": 1,
+    "markers": [
+      "Manifest signature : FAIL",
+      "Update             : REJECTED"
+    ]
+  },
+  {
+    "id": "rollback",
+    "title": "14.1 과거 v1 차단",
+    "release": "v1",
+    "action": "none",
+    "exit_code": 1,
+    "markers": [
+      "Manifest signature : PASS",
+      "Firmware SHA-256   : PASS",
+      "Version policy     : FAIL (current=2.0, new=1.0)",
+      "Anti-Rollback      : REJECT"
+    ]
+  },
+  {
+    "id": "recovery",
+    "title": "14.2 Health 실패와 A/B Recovery",
+    "release": "v3_badhealth",
+    "action": "none",
+    "exit_code": 1,
+    "markers": [
+      "Manifest signature : PASS",
+      "Firmware SHA-256   : PASS",
+      "Version policy     : PASS",
+      "Install            : slot_A",
+      "Health check       : FAIL",
+      "Recovery           : keep slot_B v2.0"
+    ]
+  }
+]
