@@ -1,0 +1,12 @@
+{
+  "host_name": "pi-lab-01",
+  "username": "learner",
+  "password": "",
+  "mac": "",
+  "ip": "",
+  "pc_ip": "",
+  "ssh_host_key": "",
+  "port": 8000,
+  "step_pause_seconds": 4,
+  "last_verified_at": null
+}

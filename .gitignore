@@ -1,0 +1,7 @@
+/config.json
+/config.*.local.json
+**/.runtime/
+**/.tools/
+**/__pycache__/
+*.log
+/.code-review-graph/
