@@ -1,5 +1,6 @@
 *.cmd text eol=crlf
 *.ps1 text eol=crlf
+*.psm1 text eol=crlf
 *.md text eol=lf
 *.sh text eol=lf
 *.py text eol=lf
@@ -7,4 +8,5 @@
 
 # Preserve the exact bytes covered by the textbook signatures and hashes.
 DAY3/lab/server/releases/** -text
+Integrated/server/releases/** -text
 *.sig binary

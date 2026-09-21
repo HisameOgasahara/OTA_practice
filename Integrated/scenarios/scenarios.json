@@ -1,0 +1,131 @@
+[
+  {
+    "id": "basic_normal",
+    "title": "검증 없는 정상 업데이트",
+    "release": "v2",
+    "action": "none",
+    "policy": "basic",
+    "reset": {
+      "active_slot": "slot_A",
+      "slots": {
+        "slot_A": {
+          "version": "1.0",
+          "behavior": "NORMAL",
+          "health": "GOOD"
+        },
+        "slot_B": null
+      }
+    },
+    "expected": {
+      "decision": "ACCEPTED",
+      "version": "2.0",
+      "behavior": "NORMAL",
+      "active_slot": "slot_A",
+      "unchanged": false
+    }
+  },
+  {
+    "id": "basic_firmware",
+    "title": "검증 없는 펌웨어 변조 설치",
+    "release": "v3",
+    "action": "firmware",
+    "policy": "basic",
+    "reset": null,
+    "expected": {
+      "decision": "ACCEPTED",
+      "version": "3.0",
+      "behavior": "FORCE_HEADLAMP_OFF",
+      "active_slot": "slot_A",
+      "unchanged": false
+    }
+  },
+  {
+    "id": "secure_normal",
+    "title": "보안 업데이트 기준 상태 준비",
+    "release": "v2",
+    "action": "none",
+    "policy": "secure",
+    "reset": {
+      "active_slot": "slot_A",
+      "slots": {
+        "slot_A": {
+          "version": "1.0",
+          "behavior": "NORMAL",
+          "health": "GOOD"
+        },
+        "slot_B": null
+      }
+    },
+    "expected": {
+      "decision": "ACCEPTED",
+      "version": "2.0",
+      "behavior": "NORMAL",
+      "active_slot": "slot_B",
+      "unchanged": false
+    }
+  },
+  {
+    "id": "secure_firmware",
+    "title": "동일한 v3 펌웨어 변조 차단",
+    "release": "v3",
+    "action": "firmware",
+    "policy": "secure",
+    "reset": null,
+    "expected": {
+      "decision": "HASH_REJECT",
+      "version": "2.0",
+      "behavior": "NORMAL",
+      "active_slot": "slot_B",
+      "unchanged": true
+    }
+  },
+  {
+    "id": "secure_manifest",
+    "title": "Manifest 변조 차단",
+    "release": "v3",
+    "action": "manifest",
+    "policy": "secure",
+    "reset": null,
+    "expected": {
+      "decision": "SIGNATURE_REJECT",
+      "version": "2.0",
+      "behavior": "NORMAL",
+      "active_slot": "slot_B",
+      "unchanged": true
+    }
+  },
+  {
+    "id": "secure_rollback",
+    "title": "정상 서명된 구버전 차단",
+    "release": "v1",
+    "action": "none",
+    "policy": "secure",
+    "reset": null,
+    "expected": {
+      "decision": "VERSION_REJECT",
+      "version": "2.0",
+      "behavior": "NORMAL",
+      "active_slot": "slot_B",
+      "unchanged": true
+    }
+  },
+  {
+    "id": "secure_recovery",
+    "title": "Health 실패와 A/B 복구",
+    "release": "v3_badhealth",
+    "action": "none",
+    "policy": "secure",
+    "reset": null,
+    "expected": {
+      "decision": "RECOVERED",
+      "version": "2.0",
+      "behavior": "NORMAL",
+      "active_slot": "slot_B",
+      "unchanged": false,
+      "inactive": {
+        "version": "3.0",
+        "health": "FAIL"
+      }
+    }
+  }
+]

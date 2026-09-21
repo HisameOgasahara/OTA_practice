@@ -1,0 +1,6 @@
+{
+  "ecu": "BCM_HEADLAMP",
+  "version": "3.0",
+  "firmware": "firmware.json",
+  "sha256": "893719de503b479c81086d7ec1c224158d1ea34d9faeb92b6794d309193b33c6"
+}
